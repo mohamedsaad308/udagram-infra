@@ -62,7 +62,14 @@ Resources:
                 - ec2.amazonaws.com
             Action:
               - "sts:AssumeRole"
-            Resource: !Ref BucketName
+      Policies:
+        - PolicyName: Readonly
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: "s3:*"
+                Resource: !Ref BucketName
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
 
@@ -81,11 +88,10 @@ Resources:
           apt-get update -y
           apt-get install apache2 -y
           systemctl start apache2.service
+          apt install awscli -y
           cd /var/www/html
-          echo "Udacity Demo Web Server Up and Running!" > index.html
-      # ToDo: AMI ID of Ubuntu Linux machine. Too get one, try creating a VM from the web console.
+          aws s3 cp s3://my1958426bucket/fireworks.html index.html
       ImageId: !Ref AMItoUse
-      # ToDo: Change the key-pair name, as applicable to you.
       KeyName: !Ref KeyName
       SecurityGroups:
         - Ref: WebServerSecGroup
@@ -99,7 +105,7 @@ Resources:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
       VPCZoneIdentifier:
-        - Fn::ImportValue: !Sub "${EnvironmentName}-PRIV-NETS"
+        - Fn::ImportValue: !Sub "${EnvironmentName}-PUB-NETS"
       LaunchConfigurationName:
         Ref: WebAppLaunchConfig
       MinSize: "1"
