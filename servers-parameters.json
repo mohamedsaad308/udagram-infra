@@ -1,0 +1,14 @@
+[
+  {
+    "ParameterKey": "EnvironmentName",
+    "ParameterValue": "UdagramInfra"
+  },
+  {
+    "ParameterKey": "AMItoUse",
+    "ParameterValue": "ami-005de95e8ff495156"
+  },
+  {
+    "ParameterKey": "KeyName",
+    "ParameterValue": "private-server-devops-key"
+  }
+]
