@@ -72,7 +72,7 @@ Resources:
     Type: AWS::AutoScaling::AutoScalingGroup
     Properties:
       VPCZoneIdentifier:
-        - Fn::ImportValue: !Sub "${EnvironmentName}-PUB-NETS"
+        - Fn::ImportValue: !Sub "${EnvironmentName}-PRIV-NETS"
       LaunchConfigurationName:
         Ref: WebAppLaunchConfig
       MinSize: "1"
@@ -117,7 +117,7 @@ Resources:
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 8
       HealthyThresholdCount: 2
-      Port: 8080
+      Port: 80
       Protocol: HTTP
       UnhealthyThresholdCount: 5
       VpcId:
@@ -126,4 +126,4 @@ Resources:
 Outputs:
   LoadBalancerUrl:
     Description: The URL of the ALB
-    Value: !GetAtt WebAppLB.DNSName
+    Value: !Join ["", ["http://", !GetAtt WebAppLB.DNSName]]
