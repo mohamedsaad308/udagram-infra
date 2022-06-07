@@ -10,5 +10,10 @@
   {
     "ParameterKey": "KeyName",
     "ParameterValue": "private-server-devops-key"
+  },
+
+  {
+    "ParameterKey": "BucketName",
+    "ParameterValue": "arn:aws:s3:::my1958426bucket/*"
   }
 ]
