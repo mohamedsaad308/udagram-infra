@@ -1,6 +1,6 @@
 # Infrastructure for Udiagram
 
-## Open Udagram [here] (http://ourse-webap-1d0ft9i6moqlo-1846019275.us-east-1.elb.amazonaws.com/)
+## Open Udagram [here](http://ourse-webap-1d0ft9i6moqlo-1846019275.us-east-1.elb.amazonaws.com/)
 
 ## Requirements
 
