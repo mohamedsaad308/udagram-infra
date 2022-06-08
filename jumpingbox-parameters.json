@@ -1,0 +1,18 @@
+[
+  {
+    "ParameterKey": "EnvironmentName",
+    "ParameterValue": "UdagramInfra"
+  },
+  {
+    "ParameterKey": "AMItoUse",
+    "ParameterValue": "ami-0022f774911c1d690"
+  },
+  {
+    "ParameterKey": "KeyName",
+    "ParameterValue": "jumpingbox-key"
+  },
+  {
+    "ParameterKey": "AllowedIP",
+    "ParameterValue": "154.181.144.202/32"
+  }
+]
